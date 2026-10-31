@@ -1,6 +1,6 @@
 # Guts Battery Tuning
 
-A small KernelSU module (`guts_module`, v1.0) that applies a set of battery and responsiveness tweaks on the **Samsung Galaxy A35 5G (SM-A356E)**. It changes the ZRAM algorithm, CPU/GPU frequency decisions and a few related kernel parameters, then reports what was actually applied in the module description.
+A small KernelSU module that applies a set of battery and responsiveness tweaks on the **Samsung Galaxy A35 5G (SM-A356E)**. It changes the ZRAM algorithm, CPU/GPU frequency decisions and a few related kernel parameters, then reports what was actually applied in the module description.
 
 > ⚠️ **Device-specific.** The module writes to Exynos / Samsung EMS / Mali sysfs nodes. It was built and tested only on the SM-A356E. On other devices the nodes may not exist, or may behave differently. If a node is missing, the module logs a failure and skips that tweak instead of crashing.
 
