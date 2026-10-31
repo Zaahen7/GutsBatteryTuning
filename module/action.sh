@@ -60,9 +60,9 @@ echo ""
 echo "Module made by @Zaahen7"
 echo ""
 
-# ===== Applied Check =====
-if [ ! -f "$MOD_DIR/.applied" ]; then
-    echo "Some tweaks not applied yet."
+# ===== Boot Complete Check =====
+if [ "$(getprop sys.boot_completed 2>/dev/null)" != "1" ]; then
+    echo "Android boot not completed yet."
     echo ""
     exit 0
 fi
