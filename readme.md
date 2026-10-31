@@ -9,7 +9,7 @@ A small KernelSU module that applies a set of battery and responsiveness tweaks 
 | Tweak | Config flag | What it does |
 |---|---|---|
 | **ZSTD** | `zram2zstd` | Switches the ZRAM compression algorithm to ZSTD (applied early, in `post-fs-data`). |
-| **SWAP** | `change_zram_swappiness` | Sets `vm.swappiness` (default `100`). |
+| **SWAP** | `change_zram_swappiness` | Sets `vm.swappiness` (default `130`). |
 | **RL** | `ego_rate_limit` | Increases the EGO rate limit, so the CPU frequency is decided less often. |
 | **HTB** | `heavy_tb` | Sets EGO heavy task boost, so tasks are overestimated less and high frequencies trigger less often. |
 | **GPU** | `gpu_hsdelay` | Increases the Mali `highspeed_delay`, so the GPU takes more cycles to decide a frequency change. |
