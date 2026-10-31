@@ -15,7 +15,6 @@ net_scheduler="false" # Change WIFI net scheduler to avoid bufferbloat
 # Tweaks Values
 # Dont change these values if you dont know what they do
 zram_swappiness="130"
-time_after_boot="180"
 ego_rate_limit_big="6"
 ego_rate_limit_little="16"
 heavy_tb_big="100"
