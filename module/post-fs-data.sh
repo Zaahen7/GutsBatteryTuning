@@ -1,19 +1,23 @@
+
 #!/system/bin/sh
 
-MOD_DIR=${0%/*}
+MOD_DIR="${0%/*}"
+[ "$MOD_DIR" = "$0" ] && MOD_DIR="."
+
 LOG="$MOD_DIR/GutsModule.log"
 CONFIG="$MOD_DIR/config.sh"
-MODULE_PROP="$MOD_DIR/module.prop"
 
-# Initialize log
+# ===== Initialize =====
 printf 'post-fs-data: %s\n' "$(date)" > "$LOG"
+
 rm -f "$MOD_DIR/.applied"
+rm -f "$MOD_DIR/.zstd_status"
 
 log() {
     printf '%s\n' "$1" >> "$LOG"
 }
 
-# Load configuration
+# ===== Load Configuration =====
 if [ ! -f "$CONFIG" ]; then
     log "[FAIL] Config file missing."
     exit 1
@@ -22,7 +26,7 @@ fi
 . "$CONFIG"
 log "[OK] Config file loaded."
 
-# ZRAM ZSTD configuration
+# ===== ZRAM ZSTD Configuration =====
 ZSTD_PART=""
 
 if [ "$zram2zstd" = "true" ]; then
@@ -56,7 +60,7 @@ if [ "$zram2zstd" = "true" ]; then
     ZSTD_PART="ZSTD $zstd_state"
 fi
 
-# Save ZSTD status
+# ===== Save ZSTD Status =====
 printf '%s\n' "$ZSTD_PART" > "$MOD_DIR/.zstd_status"
 
 log "[OK] post-fs-data completed."
